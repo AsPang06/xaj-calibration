@@ -309,6 +309,13 @@ def setup_document():
         pf.line_spacing = 1.3
         # 关闭标题默认的蓝色与倾斜
         st.font.italic = False
+
+    props = doc.core_properties
+    props.title = "新安江模型参数率定与洪水预报检验"
+    props.subject = "《领域软件工程》课程大作业：青河流域洪水预报系统"
+    props.comments = "由 scripts/04_report.py 自动生成；数据与结果见 outputs/"
+    props.author = ""
+    props.last_modified_by = ""
     return doc
 
 
@@ -551,7 +558,7 @@ def chapter2(doc):
         "重写后的实现必须与原始算法完全一致，否则后续率定结果无法与课件结论对照。"
         "为此做了两层校验：一是数值等价性测试，取初值参数、率定参数和 4 组随机参数，"
         "在 4 场洪水上逐一比较出口流量、河道入流、三水源流量、蒸散发、产流、"
-        "土壤与自由水蓄量等 13 个输出序列，最大相对偏差为 0.0；"
+        "土壤与自由水蓄量等 12 个输出序列，最大相对偏差为 0.0；"
         "二是 57 项单元测试，覆盖指标解析解、数据校验规则、水量平衡、"
         "线性水库递推、马斯京根蓄量关系以及率定目标函数的结构，全部通过。"
         "测试中还发现并记录了两个易错点：状态量中的马斯京根记忆未随 state_end 输出，"
@@ -924,7 +931,7 @@ def appendix(doc):
         "├─ outputs/calibration/      参数、指标、收敛历史、末代种群",
         "├─ outputs/analysis/         行为参数集、参数分布、包络、敏感性",
         "├─ outputs/figures/          报告图件（PNG）",
-        "└─ report/                   本报告与 PDF 版本",
+        "└─ report/                   本报告（.docx，可另存为 PDF）",
     ]
     for line in tree:
         p = body(doc, "", indent=False, after=0, line=1.25)

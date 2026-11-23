@@ -20,7 +20,7 @@
 - **不依赖 scipy 与 matplotlib**：优化器（DE、Nelder–Mead）与绘图库均为项目内
   numpy / Pillow 实现，运行只要求 numpy、pandas、python-docx、Pillow 四个包。
 - **全流程可复现**：固定随机种子 `seed=42`，DE 种群与收敛历史落盘，`05_verify.py`
-  用 66 项冻结期望值校验一次运行是否与交付结果一致。
+  用 68 项冻结期望值校验一次运行是否与交付结果一致。
 - **附带分析而非只有参数**：行为参数集（异参同效）、参数相对极差、5%–95% 预报包络、
   单因子敏感性、三水源水量平衡。
 - **产物齐全**：7 张报告图、10 张三线表、一份 A4 排版的 Word 报告，均由脚本生成。
@@ -46,7 +46,7 @@ python scripts/01_calibrate.py     # 率定 + event4 检验，约 2~3 分钟（9
 python scripts/02_analysis.py      # 异参同效、敏感性、包络，约 5 秒
 python scripts/03_figures.py       # 7 张报告图，约 10 秒
 python scripts/04_report.py        # Word 报告，约 5 秒
-python scripts/05_verify.py        # 复现自检，66 项全部 PASS 才算成功
+python scripts/05_verify.py        # 复现自检，68 项全部 PASS 才算成功
 ```
 
 脚本内部已将 `src/` 加入 `sys.path`，无需设置 `PYTHONPATH`；路径以脚本位置为基准，
@@ -127,10 +127,10 @@ xaj-calibration/
 │  ├─ 02_analysis.py          分析与包络 → outputs/analysis/
 │  ├─ 03_figures.py           7 张图 → outputs/figures/
 │  ├─ 04_report.py            Word 报告 → report/
-│  ├─ 05_verify.py            复现自检（66 项）
+│  ├─ 05_verify.py            复现自检（68 项）
 │  └─ reproduce.ps1           一键流水线（PowerShell）
 ├─ tests/                      57 项 unittest
-├─ docs/                       复现指南、GitHub 发布指南、项目总结
+├─ docs/                       复现指南、项目总结
 ├─ outputs/                    运行产物（可删除后重建）
 └─ report/                     新安江模型参数率定报告.docx
 ```
